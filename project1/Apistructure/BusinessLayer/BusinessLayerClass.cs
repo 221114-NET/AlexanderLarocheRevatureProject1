@@ -13,9 +13,11 @@ namespace BusinessLayer
 
         public Employee PostEmployeeController(Employee e)
         {
+        
         e.EmployeeId = 16;
         Employee emp1 = _repo.PostEmployeeController(e);
         return emp1;
+
         }
     }
 }
