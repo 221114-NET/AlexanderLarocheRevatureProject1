@@ -14,12 +14,14 @@ namespace Apiui.Controllers
     {
         private readonly BusinessLayerClass _buslayer = new BusinessLayerClass();
 
-        [HttpPost]
-        public Employee PostEmployeeController(Employee e)
+        [HttpPost("reimbursementportal")]
+        public ActionResult<Employee> PostEmployeeController(Employee e)
         {
             e.fName = "Antoine";
-            EmployeeController emp1 = _buslayer.PostEmployeeController(e);
-            return emp1;
+            Employee emp1 = _buslayer.PostEmployeeController(e);
+
+            return Created("mydb/employee/here", emp1);
+
             
         }
 
