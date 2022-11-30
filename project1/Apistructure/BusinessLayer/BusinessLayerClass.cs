@@ -11,12 +11,12 @@ namespace BusinessLayer
     {
         private readonly RepositoryClass _repo = new RepositoryClass();
 
-        public Employee PostEmployeeController(Employee e)
+        public User PostUserController(User u)
         {
         
-        e.EmployeeId = 16;
-        Employee emp1 = _repo.PostEmployeeController(e);
-        return emp1;
+        u.UserId = 16;
+        User u1 = _repo.PostUserController(u);
+        return u1;
 
         }
     }

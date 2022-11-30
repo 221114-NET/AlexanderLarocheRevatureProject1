@@ -9,19 +9,20 @@ namespace RepoLayer
 {
     public class RepositoryClass
     {
-        public Employee PostEmployeeController(Employee e)
+        public User PostUserController(User u)
         {
-            e.lName = "Jackson";
+        
+            u.Lname = "Jackson";
 
-            List<Employee> elist = new List<Employee>();
+            List<User> ulist = new List<User>();
 
-            elist.Add(e);
+            ulist.Add(u);
 
-            string eliststr = JsonSerializer.Serialize(elist);
+            string uliststr = JsonSerializer.Serialize(ulist);
 
-            File.WriteAllText("EmployeeList.json", eliststr);
+            File.WriteAllText("UserList.json", uliststr);
 
-            return e;
+            return u;
 
         }
     }
