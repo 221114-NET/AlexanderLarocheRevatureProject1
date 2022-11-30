@@ -10,17 +10,17 @@ namespace Apiui.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class EmployeeController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly BusinessLayerClass _buslayer = new BusinessLayerClass();
 
         [HttpPost("reimbursementportal")]
-        public ActionResult<Employee> PostEmployeeController(Employee e)
+        public ActionResult<User> PostUserController(User u)
         {
-            e.fName = "Antoine";
-            Employee emp1 = _buslayer.PostEmployeeController(e);
+            u.Fname = "Antoine";
+            User u1 = _buslayer.PostUserController(u);
 
-            return Created("mydb/employee/here", emp1);
+            return Created("mydb/user/here", u1);
 
             
         }
