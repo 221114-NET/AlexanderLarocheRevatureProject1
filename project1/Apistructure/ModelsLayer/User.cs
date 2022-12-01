@@ -7,7 +7,7 @@ namespace ModelsLayer
 {
     public class User
     {
-        public User(int UserId, string username, string password, string Fname, string Lname, string email)
+        public User(int UserId, string username, string password, string Fname, string Lname, string email, int role)
         {
             this.UserId = UserId;
             this.username = username;
@@ -15,6 +15,7 @@ namespace ModelsLayer
             this.Fname = Fname;
             this.Lname = Lname;
             this.email = email;
+            this.role = role;
         }
 
         public int UserId {get; set; }
@@ -23,6 +24,7 @@ namespace ModelsLayer
         public string Fname { get; set; }
         public string Lname { get; set; }
         public string email { get; set; }
+        public int role {get; set; }
     }
 
     public class Reimbursement
@@ -49,7 +51,7 @@ namespace ModelsLayer
             public int type {get; set; }
     }
 
-    public class ReimbursementStatus
+    public class ReimbursementStatus //shows status (pending, approved, denied)
     {
         public ReimbursementStatus(int StatusId, string status)
         {
@@ -61,7 +63,7 @@ namespace ModelsLayer
         public string status {get; set; }
     }
 
-    public class ReimbursementType
+    public class ReimbursementType //possibly shows what reimbursement is for (travel, gas, etc)
     {
         public ReimbursementType(int TypeId, string Rtype)
         {
