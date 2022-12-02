@@ -12,13 +12,28 @@ namespace Apiui.Controllers
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly BusinessLayerClass _buslayer = new BusinessLayerClass();
+        private readonly ITicketRequest _itr;
+        public UserController(ITicketRequest itr) => this._itr = itr;
 
-        [HttpPost("ReimbursementPortal")]
-        public ActionResult<User> ReimbursementPortal(User u)
+        [HttpPost("UserRegistration")]
+        public ActionResult<User> UserRegistration(string username, string email, string password)
         {
-            User u1 = _buslayer.ReimbursementPortal(u);
-            return Created("mydb/user/portal", u1);
+            User u1 = _itr.UserRegistration(username, email, password);
+            return Created("mydb/user/registration", u1);
+        }
+
+        [HttpGet("UserLogin")]
+        public ActionResult<User> UserLogin(string username, string password)
+        {
+            User u2 = _itr.UserLogin(username, password);
+            return Created("mydb/user/login", u2);
+        }
+        
+        [HttpPost("AdminLogin")]
+        public ActionResult<User> AdminLogin(string username, string password)
+        {
+            User u1 = _itr.UserLogin(username, password);
+            return Created("mydb/user/login", u1);
         }
 
     }
