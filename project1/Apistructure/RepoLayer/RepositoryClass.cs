@@ -7,23 +7,17 @@ using ModelsLayer;
 
 namespace RepoLayer
 {
-    public class RepositoryClass
+    public interface IRepositoryClass
     {
-        public User PostUserController(User u)
+        List<User> UserList();
+    }
+
+    public class RepositoryClass : IRepositoryClass
+    {
+        public List<User> UserList()
         {
-        
-            u.Lname = "Jackson";
-
-            List<User> ulist = new List<User>();
-
-            ulist.Add(u);
-
-            string uliststr = JsonSerializer.Serialize(ulist);
-
-            File.WriteAllText("UserList.json", uliststr);
-
-            return u;
-
+            return JsonSerializer.Deserialize<List<User>>(File.ReadAllText("UserList.json"))!;
         }
     }
+    
 }

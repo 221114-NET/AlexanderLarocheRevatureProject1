@@ -34,9 +34,9 @@ namespace ModelsLayer
                 this.ReimbursementId = ReimbursementId;
                 this.author = author;
                 this.amount = amount;
-                this.DateSubmitted = DateSubmitted;
-                this.DateResolved = DateResolved;
-                this.description = description;
+                this.DateSubmitted = DateSubmitted; // get rid of
+                this.DateResolved = DateResolved;// get rid of
+                this.description = description; // get rid of
                 this.status = status;
                 this.type = type;
             }
