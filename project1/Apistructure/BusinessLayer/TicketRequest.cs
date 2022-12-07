@@ -24,7 +24,33 @@ public interface ITicketRequest
         public User UserRegistration (string username, string email, string password)
         {
         List<User> UserInfo = _irc.UserList();
-        return null!;//need to change this to an actual value
+        
+        User newUser = new User(username, email, password);
+
+        UserInfo.Add(newUser);
+        _irc.PostUsers(UserInfo);
+
+        return newUser;
+        }
+
+        public User UserLogin(string email, string password) {
+            List<User> UserInfo = _irc.UserList();
+            foreach(User employee in UserInfo) {
+                
+                return employee;
+            }
+
+            return null!;
+        }
+
+         public User AdminLogin(string email, string password) {
+            List<User> UserInfo = _irc.UserList();
+            foreach(User Admin in UserInfo) {
+                
+                return Admin;
+            }
+
+            return null!;
         }
 
     }
